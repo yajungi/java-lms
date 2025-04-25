@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import nextstep.session.image.domain.SessionCoverImage;
 import nextstep.session.image.entity.SessionCoverImageEntity;
@@ -41,6 +42,7 @@ public class JdbcSessionCoverImageRepository implements SessionCoverImageReposit
             entity.getHeight());
     }
 
+    @Transactional(readOnly = true)
     @Override
     public List<SessionCoverImage> findBySessionId(long sessionId) {
         List<SessionCoverImageEntity> entity = selectSessionCoverImageById(sessionId);

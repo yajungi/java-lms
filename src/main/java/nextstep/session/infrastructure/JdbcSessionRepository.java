@@ -86,6 +86,7 @@ public class JdbcSessionRepository implements SessionRepository {
             });
     }
 
+    @Transactional(readOnly = true)
     @Override
     public Session findById(long id) {
         List<Student> students = selectStudents(id);
