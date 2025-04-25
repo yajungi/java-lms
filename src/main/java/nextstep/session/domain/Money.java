@@ -1,6 +1,7 @@
 package nextstep.session.domain;
 
 import java.util.Currency;
+import java.util.Locale;
 
 import nextstep.session.exception.MoneyIllegalArgumentException;
 
@@ -9,7 +10,7 @@ public class Money {
     private final Currency currency;
 
     public Money(long amount) {
-        this(amount, Currency.getInstance("KRW"));
+        this(amount, Currency.getInstance(Locale.KOREA));
     }
 
     public Money(long amount, Currency currency) {
